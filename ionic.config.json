@@ -1,0 +1,7 @@
+{
+  "name": "zafiruzapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
