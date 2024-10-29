@@ -1,0 +1,46 @@
+
+  <ion-header mode="md">
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button icon="caret-back" color="tertiary"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{character.name}}</ion-title>
+    <ion-title slot="end">
+      <img width="100px" src="./assets/icon/zafirus2.svg">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    
+    <ion-card-header>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img alt="heroe photo" [src]="character.thumbnail.path + '.' + character.thumbnail.extension" />
+        </ion-avatar>
+        <ion-card-title color="secondary">{{character.name}}</ion-card-title>
+      </ion-item>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <ion-item lines="full">
+        <ion-label color="secondary">Other info</ion-label>
+      </ion-item>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-label color="secondary">Comics availables</ion-label>
+          <ion-badge slot="end" [color]="character.series.available > 0 ? 'primary': 'tertiary' ">{{character.comics.available}}</ion-badge>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label color="secondary">Series availables</ion-label>
+          <ion-badge slot="end" [color]="character.series.available > 0 ? 'primary': 'tertiary' ">{{character.series.available}}</ion-badge>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label color="secondary">Stories availables</ion-label>
+          <ion-badge slot="end" [color]="character.stories.available > 0 ? 'primary': 'tertiary' ">{{character.stories.available}}</ion-badge>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

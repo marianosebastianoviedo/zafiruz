@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar mode="md" color="primary">
+    <ion-title slot="end">
+      <img width="100px" src="./assets/icon/zafirus2.svg">
+    </ion-title>
+    <ion-title slot="start">
+      Heroes List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  @for (character of characters(); track character.id) {
+    
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img alt="heroe photo" [src]="character.thumbnail.path + '.' + character.thumbnail.extension" />
+      </ion-thumbnail>
+      <ion-label color="secondary">{{character.name}}</ion-label>
+      <ion-button (click)="getCharDetails(character.id)" fill="clear" size="small" color="tertiary">
+        <ion-icon slot="icon-only" name="eye-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-item>
+    
+  }         
+</ion-list>
+</ion-content>
