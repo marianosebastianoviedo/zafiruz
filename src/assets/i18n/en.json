@@ -1,0 +1,11 @@
+{
+    "list": {
+      "title": "Heroes List"
+    },
+    "details": {
+      "info": "Other info",
+      "comics": "Aavailable Comics",
+      "series": "Available Series",
+      "stories": "Available Stories"
+    }
+}

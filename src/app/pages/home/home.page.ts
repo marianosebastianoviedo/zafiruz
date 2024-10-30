@@ -17,9 +17,33 @@ export class HomePage implements OnInit{
     
   }
   ngOnInit(): void {
-    this.getAllCharacters();
+    this.getAllWithCapPlugin();
   }
-  async getAllCharacters(){
+
+  async getAllWithCapPlugin(){
+    await this.spinner.show();
+    await this.marvelApi.getCharactersWithCapacitorHttp().then( response =>{
+      this.characters.set(response.data.data.results as Hero[]);
+        this.spinner.hide().then();
+        console.log(this.characters());
+        
+      },error=> {
+        this.spinner.hide().then();
+        alert(error)
+    });
+  }
+  
+  getCharDetails(id:number){
+    const heroes = this.characters();
+    const index = heroes.findIndex((hero) => hero.id === id );
+    this.character.set(heroes[index]);
+    this.marvelApi.setData(this.character()as Hero);
+    this.nav.navigate([`hero`]).then();
+  }
+  PhotoPath(path:string, extention:string){
+    return `${path}.${extention}`;
+  }
+ /* async getAllCharacters(){
     this.spinner.show();
     this.marvelApi.getCharacters().subscribe({
       next: (characters:any)=>{
@@ -34,14 +58,5 @@ export class HomePage implements OnInit{
         console.log('AllCharacters');
       },
     });
-  }
-  
-  getCharDetails(id:number){
-    const heroes = this.characters();
-    const index = heroes.findIndex((hero) => hero.id === id );
-    this.character.set(heroes[index]);
-    this.marvelApi.setData(this.character()as Hero);
-    this.nav.navigate([`hero`]).then();
-  }
- 
+  } */
 }

@@ -14,5 +14,7 @@ export class HeroPage {
   constructor(private marvelApi:MarvelService) { 
     this.character = this.marvelApi.getData() as Hero;
   }
-
+  PhotoPath(path:string, extention:string){
+    return `${path}.${extention}`;
+  }
 }

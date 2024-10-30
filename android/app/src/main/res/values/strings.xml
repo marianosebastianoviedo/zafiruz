@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">zafiruzapp</string>
+    <string name="title_activity_main">zafiruzapp</string>
+    <string name="package_name">mso.zafiruz.chllg</string>
+    <string name="custom_url_scheme">mso.zafiruz.chllg</string>
+</resources>
